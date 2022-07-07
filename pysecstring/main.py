@@ -217,7 +217,7 @@ def set_credentials(username_file=None, pass_file=None):
         with open(username_file, 'wb') as fout:
             fout.write(encode(username, 'utf-16'))
     if pass_file is not None:
-        with open(username_file, 'wb') as fout:
+        with open(pass_file, 'wb') as fout:
             fout.write(encode(password, 'utf-16'))
     return username, password
 
