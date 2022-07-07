@@ -5,7 +5,7 @@ description = "Python implementation of Window's Securestring forked from aznash
 authors = ["Gwang-Jin Kim <gwang.jin.kim.phd@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.5"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

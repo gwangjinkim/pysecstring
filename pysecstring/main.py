@@ -19,7 +19,8 @@ import ctypes
 import ctypes.wintypes
 
 
-import subprocess
+# import subprocess
+from getpass import getpass
 
 '''
 win32 = ctypes.WinDLL('kernel32.dll', use_last_error=True)
@@ -184,7 +185,7 @@ def decrypt(input, binary=False):
         return decode(raw, "utf-16")
 
 
-
+'''
 class CredentialGenerator:
     
     @classmethod
@@ -196,11 +197,32 @@ class CredentialGenerator:
         # asks for username and password to save it in encrypted forms
         res = cls.cmd( f"ConvertFrom-SecureString $(Read-Host -Prompt 'Enter the username' -AsSecureString) | Out-File {username_file}")
         res1 = cls.cmd(f"ConvertFrom-SecureString $(Read-Host -Prompt 'Enter the password' -AsSecureString) | Out-File {pass_file}")
-        return (res, res1)            
+        return (res, res1)
 
 # for nicer interface of the module:
 def set_credentials(username_file, pass_file):
     return CredentialGenerator.generate(username_file, pass_file)
+
+# this works, but it uses PowerShell commands, which take very long time.
+'''
+
+'''
+poetry add getpass
+'''
+
+def set_credentials(username_file=None, pass_file=None):
+    username = encrypt(getpass(prompt="username: "))
+    password = encrypt(getpass(prompt="password: "))
+    if username_file is not None:
+        with open(username_file, 'wb') as fout:
+            fout.write(username)
+    if pass_file is not None:
+        with open(username_file, 'wb') as fout:
+            fout.write(password)
+    return username, password
+
+
+
 
 class CredentialObject:
     
