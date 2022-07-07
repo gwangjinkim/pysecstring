@@ -223,7 +223,7 @@ class CredentialObject:
     def decrypt(self, path):
         encrypted_binary = self.read_in(path)
         encrypted = decode(encrypted_binary, 'utf-16').strip() # Out-File adds a '\r\x00\n\x00' at the end! therefore `.strip()`
-        return pss.decrypt(encrypted)
+        return decrypt(encrypted)
 
 # for nicer interface of the module:
 def get_credentials(user_file, pass_file):
