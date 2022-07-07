@@ -215,10 +215,10 @@ def set_credentials(username_file=None, pass_file=None):
     password = encrypt(getpass(prompt="password: "))
     if username_file is not None:
         with open(username_file, 'wb') as fout:
-            fout.write(username)
+            fout.write(encode(username, 'utf-16'))
     if pass_file is not None:
         with open(username_file, 'wb') as fout:
-            fout.write(password)
+            fout.write(encode(password, 'utf-16'))
     return username, password
 
 
