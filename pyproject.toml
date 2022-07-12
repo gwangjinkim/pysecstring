@@ -2,6 +2,7 @@
 name = "pysecstring"
 version = "0.1.8"
 description = "Python implementation of Window's Securestring forked from aznashwan/py-securestring"
+readme = "README.md"
 authors = ["Gwang-Jin Kim <gwang.jin.kim.phd@gmail.com>"]
 
 [tool.poetry.dependencies]
@@ -13,3 +14,4 @@ pytest = "^5.2"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
